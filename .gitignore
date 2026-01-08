@@ -1,0 +1,42 @@
+# Environment files (keep your credentials local!)
+.env
+.env.local
+.env.*.local
+
+# Database backups
+/backup/
+/backups/
+*.tar.gz
+*.tar
+*.dump
+*.bak
+
+# Docker volumes (data is in Docker, not git)
+mongodb_data/
+mongodb_config/
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+*.log
+docker-compose.log
+
+# Temporary
+tmp/
+temp/
+.tmp/
+
+# Docker
+docker-compose.override.yml
+.docker/
