@@ -22,7 +22,7 @@ EXPRESS_PASSWORD=YourSecurePassword123!
 
 ### Step 3: Access
 
--   **Mongo Express (Web UI):** http://localhost:8081
+-   **Mongo Express (Web UI):** <http://localhost:8081>
 -   **MongoDB:** localhost:27017
 -   **Username:** admin
 -   **Password:** (from .env file)
@@ -98,37 +98,6 @@ async function connect() {
 connect()
 ```
 
-### Python
-
-```python
-from pymongo import MongoClient
-
-uri = "mongodb://admin:YOUR_PASSWORD@localhost:27017/myapp?authSource=admin"
-client = MongoClient(uri)
-db = client.myapp
-collection = db.users
-
-collection.insert_one({"name": "John"})
-users = list(collection.find())
-print(users)
-client.close()
-```
-
-### Java
-
-```java
-import com.mongodb.client.*;
-import org.bson.Document;
-
-String uri = "mongodb://admin:YOUR_PASSWORD@localhost:27017/myapp?authSource=admin";
-MongoClient mongoClient = MongoClients.create(uri);
-MongoDatabase database = mongoClient.getDatabase("myapp");
-MongoCollection<Document> collection = database.getCollection("users");
-
-collection.insertOne(new Document("name", "John"));
-mongoClient.close();
-```
-
 ### Docker Container to MongoDB
 
 ```javascript
@@ -148,6 +117,14 @@ git push origin main
 
 # On other device:
 git clone your-repo-url && docker-compose up -d
+```
+
+## 🌍 MongoShell run on terminal
+
+### Run Mongoshell
+
+```bash
+docker exec -it mongodb mongosh -u admin -p changeme123 --authenticationDatabase admin
 ```
 
 ### Using Cloud Storage
@@ -207,27 +184,6 @@ Password:              (from .env file)
 Connection String:
 mongodb://admin:PASSWORD@localhost:27017/admin?authSource=admin
 ```
-
----
-
-## ❓ FAQ
-
-**Q: Will data be lost if I restart?**
-A: No! Docker volumes persist data automatically.
-
-**Q: How do I use this on Mac/Linux?**
-A: Same setup. Run `docker-compose up -d` instead of start.bat
-
-**Q: Can I use on multiple devices?**
-A: Yes! Push to GitHub or cloud storage, then clone/sync on other devices.
-
-**Q: How do I backup?**
-A: Run `backup.bat` (Windows) or `./backup.sh` (Linux/Mac)
-
-**Q: Is this production-ready?**
-A: Yes! Includes authentication, health checks, and resource limits.
-
----
 
 **Status:** ✅ Complete | **Version:** 1.0 | **Updated:** January 2026
 
